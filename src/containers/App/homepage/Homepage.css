@@ -1,0 +1,24 @@
+ul,
+li {
+  list-style: none;
+  padding: 0px; /* Reset Boostrap settings */
+}
+
+.title,
+ul {
+  text-align: center;
+}
+
+.currentDay {
+  margin-top: 30px;
+}
+
+.test {
+  text-align: left;
+  width: 300px;
+  margin: auto;
+}
+
+.exercise-Desc {
+  margin-top: 10px;
+}
