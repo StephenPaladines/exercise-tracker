@@ -1,0 +1,12 @@
+.profile-pic {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-container {
+  margin: 0 auto;
+  width: 300px;
+  min-height: 300px;
+  max-height: auto;
+  /* background-color: black; */
+}

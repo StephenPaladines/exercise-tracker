@@ -7,7 +7,8 @@ import EditExercise from "../../../components/editExercise/EditExercise";
 import CreateExercise from "../../../components/createExercise/CreateExercise";
 import CreateUser from "../../../components/createUser/CreateUser";
 import Homepage from "../homepage/Homepage";
-import { useAuth0 } from "../../../react-auth0-spa";
+import Profile from "../../../components/profile/Profile";
+import { useAuth0, Auth0Context } from "../../../react-auth0-spa";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" exact component={Homepage} />
         <Route path="/edit/:id" component={EditExercise} />
         <Route path="/create" component={CreateExercise} />
+        <Route path="/profile" component={Profile} />
         <Route path="/user" component={CreateUser} />
       </div>
     </Router>

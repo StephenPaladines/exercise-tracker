@@ -2,7 +2,6 @@
 // https://www.youtube.com/watch?v=7CqJlxBYj-M
 // https://mongoosejs.com/docs/api.html#model_Model.findById Explains find methods
 const router = require("express").Router();
-
 let Exercise = require("../models/exercise.model");
 
 router.route("/").get((req, res) => {
@@ -24,12 +23,13 @@ router.route("/:id").delete((req, res) => {
 });
 
 router.route("/update/:id").post((req, res) => {
-  Exercise.findById(req.params.id)
+  Exercise.findById(req.params._id)
     .then(exercise => {
       exercise.username = req.body.username;
       exercise.description = req.body.description;
       exercise.duration = Number(req.body.duration);
       exercise.date = Date.parse(req.body.date);
+      exercise.completion = req.body.completion;
 
       exercise
         .save()
@@ -44,12 +44,14 @@ router.route("/add").post((req, res) => {
   const description = req.body.description;
   const duration = Number(req.body.duration);
   const date = Date.parse(req.body.date);
+  const completion = req.body.completion;
 
   const newExercise = new Exercise({
     username,
     description,
     duration,
-    date
+    date,
+    completion
   });
 
   newExercise

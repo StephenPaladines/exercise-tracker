@@ -24,26 +24,20 @@ const Navbar = () => {
               Create
             </Link>
           </li>
-          {/* <li className="navbar-item">
-            <Link to="/user" className="nav-link">
-              Profile
-            </Link>
-          </li> */}
         </ul>
         {!user ? null : (
           <ul className="navbar-nav">
-            <img
-              id="avatar-picture"
-              src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.iconscout.com%2Ficon%2Ffree%2Fpng-256%2Faccount-profile-avatar-man-circle-round-user-30452.png&f=1&nofb=1"
-              alt="avatar"
-            />
+            <Link to="/profile" className="nav-link" id="avatar-picture">
+              <img
+                id="avatar-picture"
+                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.iconscout.com%2Ficon%2Ffree%2Fpng-256%2Faccount-profile-avatar-man-circle-round-user-30452.png&f=1&nofb=1"
+                alt="avatar"
+              />
+            </Link>
           </ul>
         )}
         {!isAuthenticated && (
           <Button name="Log in" handleChange={() => loginWithRedirect({})} />
-        )}
-        {isAuthenticated && (
-          <Button name="Log out" handleChange={() => logout()} />
         )}
       </div>
     </nav>

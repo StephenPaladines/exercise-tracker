@@ -11,13 +11,21 @@ const Homepage = props => {
   // Hook used to fetch data and then set exerciseData
   // Passed empty array to avoid re-rendering (no dependency on props or states)
   useEffect(() => {
-    fetch("http://localhost:5000/exercises")
+    if (!user) return;
+    fetch("http://localhost:5000/exercises", null)
       .then(response => response.json())
       .then(data => {
         // To-do: Filter exercises by username once implemented
-        setExerciseData(data);
+        const userExercise = data.filter(exercise => {
+          if (
+            exercise.username === user.name ||
+            exercise.username === user.nickname
+          )
+            return exercise;
+        });
+        setExerciseData(userExercise);
       });
-  }, []);
+  }, [user]);
 
   return (
     <div>
